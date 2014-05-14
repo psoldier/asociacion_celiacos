@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<title>Asociaci&oacute;n Cel&iacute;aca Argentina</title>
+	<h:outputStylesheet  name="css/bootstrap.css" />
+	<h:outputStylesheet  name="css/bootstrap-responsive.min.css" />
+	<h:outputStylesheet  name="css/main.css" />
+	<h:outputStylesheet  name="css/datepicker.css" />
+</h:head>
+<h:body>
+  <div class="container">
+	  <h:form class="form-signin">
+	 	  <h2 class="form-signin-heading">Ingresar</h2>
+	    <label>Email</label>
+	    <h:inputText id="emailInput" required="true" value="#{loginBean.email}" class="input-block-level">
+		  	<f:validateRegex pattern="^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$" />
+			</h:inputText>
+			<span style="color: red;">
+		  	<b>
+			 		<h:message for="emailInput" showDetail="true" />
+				</b>
+				<br/>
+			</span>
+	   	<label>Contrase&#241;a</label>
+	   	<h:inputSecret id="passwordInput" required="true" value="#{loginBean.password}" class="input-block-level" >
+	 	 		<f:validator  validatorId="validadorPassword" />
+		 	</h:inputSecret>
+ 	 	 	<span style="color: red;">
+	 		  <b>
+	 	 	  <h:message  for="passwordInput" />
+		 	 	</b>
+		 		<br/>
+		  </span>
+      <h:commandButton value="Entrar"  action="#{loginBean.login()}" class="btn btn-large btn-primary"></h:commandButton>
+      
+    </h:form>
+	  
+	
+  </div> <!-- /container -->
+  
+	<h:outputScript name="js/jquery-1.9.1.min.js" />
+	<h:outputScript name="js/bootstrap.min.js" />
+	<h:outputScript name="js/main.js" />
+<h:outputScript name="js/bootstrap-datepicker.js" />
+</h:body>
+
+</html>

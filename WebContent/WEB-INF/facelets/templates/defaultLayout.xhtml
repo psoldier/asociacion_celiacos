@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui= "http://java.sun.com/jsf/facelets">
+<f:view>
+	<h:head>
+		<title>Asociaci&oacute;n Cel&iacute;aca Argentina</title>
+		
+		<h:outputStylesheet  name="css/bootstrap.css" />
+		<h:outputStylesheet  name="css/bootstrap-responsive.min.css" />
+		<h:outputStylesheet  name="css/main.css" />
+		<h:outputStylesheet  name="css/datepicker.css" />
+		<ui:insert name="estilo"/>	
+	</h:head>
+	<h:body>
+		
+		<div class="navbar navbar-fixed-top"><!-- ESTO ES LA BARRA SUPERIOR -->
+		  <div class="navbar-inner">
+		    <div class="container-fluid">
+		      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </a>
+		      <a class="brand" href="#">Asociaci&oacute;n Cel&iacute;aca Argentina</a>
+		      <div class="nav-collapse collapse">
+		      	<h:form>       
+				      <p class="navbar-text pull-right">
+				      	Bienvenido <h:outputText value="#{loginBean.email}" />
+				      </p>
+    				</h:form><!--  <a href="./index.jsf" class="navbar-link">Cerrar Sesion?</a>-->
+		        
+
+		      </div>
+		    </div>
+		  </div>
+	  </div>
+	    
+	    
+		<div class="container">
+			<div class="row-fluid">
+				
+				<!-- ESTE ES EL MENU -->
+				<div class="span3">
+					<ui:insert name="menu"/>
+				</div>
+				
+				<!-- ESTE ES EL CONTENIDO REAL DE LA PANTALLA -->
+				<div class="span9">
+					<ui:insert name="contenido"/>
+				</div>
+			</div>
+			
+			<!-- ESTE ES EL FOOTER -->
+			<hr></hr>
+	    <footer>
+	    	<p>&copy; Asociacion Celiaca Argentina 2013</p>
+	   	</footer>
+	   	<!-- /FOOTER -->
+	   	
+	  </div>
+	  
+	  <h:outputScript name="js/jquery-1.9.1.min.js" />
+		<h:outputScript name="js/bootstrap.min.js" />
+		<h:outputScript name="js/main.js" />
+		<h:outputScript name="js/bootstrap-datepicker.js" />
+		
+	 	<ui:insert name="javascript"/>
+	 	
+	</h:body>
+</f:view>
+</html>

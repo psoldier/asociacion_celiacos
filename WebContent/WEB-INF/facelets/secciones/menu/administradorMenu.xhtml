@@ -1,0 +1,34 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<div class="well sidebar-nav">
+		<ul class="nav nav-list">
+			<li class="nav-header #{seccion == 'operadores' ? 'active' : ''}">
+				<h:link onclick="pageTracker._link(this.href); return false;"
+					value="Operadores" outcome="administrador_central_operadores" />
+			</li>
+			<li class="nav-header #{seccion == 'filiales' ? 'active' : ''}">
+				<h:link onclick="pageTracker._link(this.href); return false;"
+					value="Filiales" outcome="administrador_central_filiales" />
+			</li>
+			<li class="nav-header #{seccion == 'delegaciones' ? 'active' : ''}">
+				<h:link onclick="pageTracker._link(this.href); return false;"
+					value="Delegaciones" outcome="administrador_central_delegaciones" />
+			</li>
+			<li class="nav-header #{seccion == 'grupos_referencias' ? 'active' : ''}">
+				<h:link onclick="pageTracker._link(this.href); return false;"
+					value="Grupos de Referencia" outcome="administrador_central_grupos_referencias" />
+			</li>
+			<li	class="nav-header #{seccion == 'instituciones_beneficiarias' ? 'active' : ''}">
+				<h:link onclick="pageTracker._link(this.href); return false;"
+					value="Instituciones Beneficiarias" outcome="administrador_central_instituciones_beneficiarias" />
+			</li>
+			<li class="nav-header #{seccion == 'mis_datos' ? 'active' : ''}">
+				<h:link onclick="pageTracker._link(this.href); return false;"
+				value="Mis Datos" outcome="administrador_central_mis_datos" />
+			</li>
+		</ul>
+	</div>
+</ui:composition>

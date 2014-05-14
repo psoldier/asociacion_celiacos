@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/WEB-INF/facelets/templates/defaultLayout.xhtml">
+
+	<ui:define name="menu">
+		<ui:include src="/WEB-INF/facelets/secciones/menu/administradorMenu.xhtml">
+			<ui:param name="seccion" value="filiales" />
+		</ui:include>
+	</ui:define>
+
+	<ui:define name="contenido">
+		<div class="hero-unit2">
+			<legend>Listado de Filiales</legend>
+			<div class="span12">
+				<div class="span9">
+				</div>
+				<div class="span2" style="margin-top: 30px;">
+					<h:link onclick="pageTracker._link(this.href); return false;"
+					class="btn btn-primary" value="Crear Filial"
+					outcome="crearfilial" />
+				</div>
+			</div>
+			<div class="span11">
+				<h:dataTable class="table table-hover"
+					value="#{filialBean.getFiliales()}" var="filial">
+					<h:column>
+						<f:facet name="header">Nombre</f:facet>				
+	    			#{filial.getNombre()}
+	    		</h:column>
+					<h:column>
+						<f:facet name="header">Direccion</f:facet>				
+	    			#{filial.getDireccion()}
+	    		</h:column>
+					<h:column>
+						<f:facet name="header">Email</f:facet>				
+		    		#{filial.getEmail()}
+	    		</h:column>
+	    		<h:column>
+						<f:facet name="header">Telefono</f:facet>				
+	    			#{filial.getTelefono()}
+    			</h:column>
+    			<h:column>
+    				<h:form>			
+							<h:commandLink class="label label-success" action="#{filialBean.editarFilial(filial)}" value="Editar" >
+							</h:commandLink>
+						</h:form>
+    				<h:form>			
+							<h:commandLink class="label label-important" onclick="return confirm('Esta seguro?')" action="#{filialBean.eliminar(filial)}" value="Eliminar" >
+							</h:commandLink>
+						</h:form>
+    		  </h:column>
+	    		
+				</h:dataTable>
+
+			</div>
+		</div>	
+	</ui:define>
+
+</ui:composition>

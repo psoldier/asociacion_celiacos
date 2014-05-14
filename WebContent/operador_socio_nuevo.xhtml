@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/WEB-INF/facelets/templates/defaultLayout.xhtml">
+
+<ui:define name="contenido">
+     <div class="hero-unit2">
+       <legend>Crear Socio</legend>
+
+       <form class="form-horizontal" action="operador_socios.html" method="post">
+         <div class="control-group">
+           <label class="control-label" for="name">Nombre</label>
+           <div class="controls">
+             <input type="text" id="name" />
+           </div>
+         </div>
+         <div class="control-group">
+           <label class="control-label" for="surname">Apellido</label>
+           <div class="controls">
+             <input type="text" id="surname" />
+           </div>
+         </div>
+         <div class="control-group">
+           <label class="control-label" for="email">Mail</label>
+           <div class="controls">
+             <input type="email" id="email" />
+           </div>
+         </div>
+         <div class="control-group">
+           <label class="control-label" for="date">Fecha de nacimiento</label>
+           <div class="controls">
+             <input type="date" id="date" />
+           </div>
+         </div>
+         <div class="control-group">
+           <label class="control-label" for="name">Filial</label>
+           <div class="controls">
+             <select class="span3" id="select01">
+               <option>Seleccione</option>
+               <option>Filial1</option>
+               <option>Filial2</option>
+               <option>Filial3</option>
+               <option>Filial4</option>
+               <option>Filial5</option>
+             </select>
+           </div>
+         </div>
+         <div class="control-group">
+           <label class="control-label" for="name">Delegacion</label>
+           <div class="controls">
+             <select class="span3" id="select02">
+               <option>Seleccione</option>
+               <option>Delegacion1</option>
+               <option>Delegacion2</option>
+               <option>Delegacion3</option>
+               <option>Delegacion4</option>
+               <option>Delegacion5</option>
+             </select>
+           </div>
+         </div>
+
+         <div class="control-group">
+           <div class="controls">
+             <a href="operador_socios.html" ><button class="btn btn-info" >Volver</button></a>
+             <button type="submit" class="btn btn-primary">Crear</button>
+           </div>
+         </div>
+       </form>
+      
+   </div> 
+  </ui:define>
+</ui:composition>
