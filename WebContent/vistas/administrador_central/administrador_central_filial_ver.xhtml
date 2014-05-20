@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  template="/WEB-INF/facelets/templates/defaultLayout.xhtml">
+  
+  <ui:define name="menu">
+    <ui:include
+      src="/WEB-INF/facelets/secciones/menu/administradorMenu.xhtml">
+      <ui:param name="seccion" value="filiales" />
+    </ui:include>
+  </ui:define>
+
+  <ui:define name="contenido">
+    
+    <div class="hero-unit2">
+      <legend>Filial</legend>
+      
+      <h:outputLabel id="nombreLabel" value="Nombre: #{filialBean.nombre} " />
+      <h:outputLabel id="domicilioLabel" value="Direccion: #{filialBean.direccion} " />
+      <h:outputLabel id="emailLabel" value="E-Mail: #{filialBean.email} " />
+      <h:outputLabel id="telefonoLabel" value="Telefono: #{filialBean.telefono} " />
+      
+      <h:link onclick="pageTracker._link(this.href); return false;" class="btn btn-info" value="Volver" outcome="administrador_central_filiales" />
+      <h:commandLink class="label label-success" action="#{filialBean.editarFilial(this)}" value="Editar" > </h:commandLink>
+      
+    </div>
+
+  </ui:define>
+
+</ui:composition>

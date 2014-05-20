@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  template="/WEB-INF/facelets/templates/defaultLayout.xhtml">
+  
+  <ui:define name="menu">
+    <ui:include
+      src="/WEB-INF/facelets/secciones/menu/administradorMenu.xhtml">
+      <ui:param name="seccion" value="grupos_referencias" />
+    </ui:include>
+  </ui:define>
+
+  <ui:define name="contenido">
+    
+    <div class="hero-unit2">
+      <legend>Grupo de Referencia</legend>
+      
+      <h:outputLabel id="nombreLabel" value="Nombre: #{grupoDeReferenciaBean.nombre} " />
+      <h:outputLabel id="domicilioLabel" value="Direccion: #{grupoDeReferenciaBean.direccion} " />
+      <h:outputLabel id="emailLabel" value="E-Mail: #{grupoDeReferenciaBean.email} " />
+      <h:outputLabel id="telefonoLabel" value="Telefono: #{grupoDeReferenciaBean.telefono} " />
+      
+      
+      <h:link onclick="pageTracker._link(this.href); return false;" class="btn btn-info" value="Volver" outcome="administrador_central_grupos_referencias" />
+      <h:commandLink class="label label-success" action="#{grupoDeReferenciaBean.editarGrupoDeReferencia(this)}" value="Editar" ></h:commandLink>
+      
+      
+    </div>
+
+  </ui:define>
+
+</ui:composition>

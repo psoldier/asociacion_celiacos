@@ -10,34 +10,34 @@
   <ui:define name="menu">
     <ui:include
       src="/WEB-INF/facelets/secciones/menu/administradorMenu.xhtml">
-      <ui:param name="seccion" value="filiales" />
+      <ui:param name="seccion" value="grupos_referencias" />
     </ui:include>
   </ui:define>
 
   <ui:define name="contenido">
     <div class="hero-unit2">
-      <legend>Editar Filial</legend>
+      <legend>Editar Grupo de Referencia</legend>
 
       <h:form class="form-horizontal">
         <span style="display:none">
-          <h:inputText id="idInput" value="#{filialBean.id}" ></h:inputText>
+          <h:inputText id="idInput" value="#{grupoDeReferenciaBean.id}" ></h:inputText>
         </span>
         <div class="control-group">
           <label class="control-label" for="name">Nombre</label>
           <div class="controls">
-            <h:inputText id="nombreInput" value="#{filialBean.nombre}" required="true"></h:inputText>
+            <h:inputText id="nombreInput" value="#{grupoDeReferenciaBean.nombre}" required="true"></h:inputText>
           </div>
         </div>
         <div class="control-group">
           <label class="control-label" for="surname">Direccion</label>
           <div class="controls">
-            <h:inputText id="direccionInput" value="#{filialBean.direccion}" required="true"></h:inputText>
+            <h:inputText id="direccionInput" value="#{grupoDeReferenciaBean.direccion}" required="true"></h:inputText>
           </div>
         </div>
         <div class="control-group">
           <label class="control-label" for="email">Email</label>
           <div class="controls">
-            <h:inputText id="emailInput" required="true" value="#{filialBean.email}">
+            <h:inputText id="emailInput" required="true" value="#{grupoDeReferenciaBean.email}">
               <f:validateRegex pattern="^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$" />
             </h:inputText>
           </div>
@@ -45,7 +45,7 @@
         <div class="control-group">
           <label class="control-label" for="telefono">Telefono</label>
           <div class="controls">
-            <h:inputText id="telefonoInput" value="#{filialBean.telefono}"></h:inputText>
+            <h:inputText id="telefonoInput" value="#{grupoDeReferenciaBean.telefono}"></h:inputText>
           </div>
         </div>
 
@@ -53,10 +53,10 @@
           <div class="controls">
             <h:link onclick="pageTracker._link(this.href); return false;"
             class="btn btn-info" value="Volver"
-            outcome="administrador_central_filiales" />
+            outcome="administrador_central_grupos_referencias" />
             
             <h:commandButton type="submit" class="btn btn-primary"
-            value="Editar" action="#{filialBean.editar()}"></h:commandButton>
+            value="Editar" action="#{grupoDeReferenciaBean.editar()}"></h:commandButton>
           </div>
         </div>
       </h:form>
