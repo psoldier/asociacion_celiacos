@@ -9,8 +9,10 @@
     	<class>classes.Central</class>
     	<class>classes.Cuenta</class>
     	<class>classes.Cuota</class>
+    	<class>classes.Delegacion</class>
     	<class>classes.Empresa</class>
     	<class>classes.Filial</class>
+    	<class>classes.GrupoDeReferencia</class>
     	<class>classes.Item</class>
     	<class>classes.Lugar</class>
     	<class>classes.Movimiento</class>
