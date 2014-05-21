@@ -33,5 +33,12 @@ public class UsuarioDaoImpl extends DaoJpaGenerico<Usuario> implements
 		return query.getResultList();
 	}
 	
+	public List<Usuario> listaOperadorUnidad() {
+
+		//Falta agregar al query q sea por tipo operadorUnidad
+		Query query = this.getEntityManager().createQuery("FROM Usuario");
+		return query.getResultList();
+	}
+	
 
 }

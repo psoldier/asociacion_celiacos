@@ -10,6 +10,8 @@
 	    messages
 	  </message-bundle>
   </application>
+  
+  <!-- Menu Admnistrador Central -->
   <navigation-rule>
   	<navigation-case>
 		<from-outcome>administrador_central_operadores</from-outcome>
@@ -52,6 +54,41 @@
 		<to-view-id>/vistas/administrador_central/administrador_central_grupo_referencia_nuevo.xhtml</to-view-id>
 	</navigation-case>
   </navigation-rule>
+  <!-- / Menu Admnistrador Central -->
+  <!-- Menu Admnistrador Unidad -->
+  <navigation-rule>
+	<navigation-case>
+		<from-outcome>administrador_unidad_operadores</from-outcome>
+		<to-view-id>/vistas/administrador_unidad/administrador_unidad_operadores.xhtml</to-view-id>
+	</navigation-case>
+	<navigation-case>
+		<from-outcome>administrador_unidad_mis_datos</from-outcome>
+		<to-view-id>/vistas/administrador_unidad/administrador_unidad_mis_datos.xhtml</to-view-id>
+	</navigation-case>
+	<navigation-case>
+		<from-outcome>au_crearoperador</from-outcome>
+		<to-view-id>/vistas/administrador_unidad/administrador_unidad_operador_nuevo.xhtml</to-view-id>
+	</navigation-case>
+  </navigation-rule>
+  <!-- / Menu Admnistrador Unidad -->
+  
+  <!-- Menu Operador Unidad -->
+  <navigation-rule>
+	<navigation-case>
+		<from-outcome>operador_unidad_socios</from-outcome>
+		<to-view-id>/vistas/operador_unidad/operador_unidad_socios.xhtml</to-view-id>
+	</navigation-case>
+	<navigation-case>
+		<from-outcome>operador_unidad_mis_datos</from-outcome>
+		<to-view-id>/vistas/operador_unidad/operador_unidad_mis_datos.xhtml</to-view-id>
+	</navigation-case>
+	<navigation-case>
+		<from-outcome>ou_crearsocio</from-outcome>
+		<to-view-id>/vistas/operador_unidad/operador_unidad_socio_nuevo.xhtml</to-view-id>
+	</navigation-case>
+  </navigation-rule>
+  <!-- / Menu Operador Unidad -->
+  
   <navigation-rule>
   	<from-view-id>/index.xhtml</from-view-id>
    	<navigation-case>
@@ -182,5 +219,17 @@
     </navigation-case>
   </navigation-rule>
   <!-- /CRUD - GRUPOS DE REFERENCIAS -->
-  
+  <!-- Amin Unidad -->
+  <navigation-rule>
+  	<from-view-id>/vistas/administrador_unidad/administrador_unidad_mis_datos.xhtml</from-view-id>
+  	<navigation-case>
+  		<from-outcome>exito</from-outcome>
+  		<to-view-id>/vistas/administrador_unidad/administrador_unidad_mis_datos.xhtml</to-view-id>
+  	</navigation-case>
+  	<navigation-case>
+  		<from-outcome>fallo</from-outcome>
+  		<to-view-id>/vistas/administrador_unidad/administrador_unidad_mis_datos.xhtml</to-view-id>
+  	</navigation-case>
+  </navigation-rule>
+  <!-- / Amin Unidad -->
 </faces-config>

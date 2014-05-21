@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui= "http://java.sun.com/jsf/facelets"
+	template="/WEB-INF/facelets/templates/defaultLayout.xhtml">
+
+	<ui:define name="menu">
+		<ui:include src="/WEB-INF/facelets/secciones/menu/administradorMenu.xhtml">
+			<ui:param name="seccion" value="au_mis_datos" />
+		</ui:include>
+	</ui:define>
+
+	<ui:define name="contenido">
+		<div class="span12">
+			<div class="hero-unit2">
+				<fieldset>
+					<legend>Editar mis datos</legend>
+					<h:form class="form-horizontal">
+						<div class="control-group">
+							<label class="control-label" for="input1">Nombre</label>
+							<div class="controls">
+								<h:inputText id="nombreInput" value="#{admOpMisdatosBean.nombre}">
+								</h:inputText>
+							</div>
+						</div>
+
+						<div class="control-group">
+							<label class="control-label" for="input2">Apellido</label>
+							<div class="controls">
+								<h:inputText id="apellidoInput" value="#{admOpMisdatosBean.apellido}">
+								</h:inputText>
+							</div>
+						</div>
+
+						<div class="control-group">
+							<label class="control-label" for="input3">Email</label>
+							<div class="controls">
+								<h:inputText id="emailInput" required="true" value="#{admOpMisdatosBean.email}">
+									<f:validateRegex pattern="^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$" />
+								</h:inputText>
+							</div>
+						</div>
+		
+						<div class="control-group">
+							<label class="control-label" for="input4">Domicilio</label>
+							<div class="controls">
+								<h:inputText id="domicilioInput" value="#{admOpMisdatosBean.domicilio}">
+								</h:inputText>
+							</div>
+						</div>
+
+						<div class="control-group">
+							<label class="control-label" for="input5">Telefono</label>
+							<div class="controls">
+								<h:inputText id="telefonoInput" value="#{admOpMisdatosBean.telefono}">
+								</h:inputText>
+							</div>
+						</div>
+
+						<h:commandButton value="Actualizar mis datos"  action="#{admOpMisdatosBean.actualizar()}" class="btn btn-large btn-primary"></h:commandButton>
+						
+					</h:form>
+				</fieldset>
+			</div>
+
+		</div>
+	</ui:define>
+
+</ui:composition>

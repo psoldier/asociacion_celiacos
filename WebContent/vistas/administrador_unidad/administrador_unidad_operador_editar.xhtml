@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/WEB-INF/facelets/templates/defaultLayout.xhtml">
+	
+	<ui:define name="menu">
+		<ui:include
+			src="/WEB-INF/facelets/secciones/menu/administradorMenu.xhtml">
+			<ui:param name="seccion" value="au_operadores" />
+		</ui:include>
+	</ui:define>
+
+	<ui:define name="contenido">
+		<div class="hero-unit2">
+			<legend>Editar Operador</legend>
+
+			<h:form class="form-horizontal">
+				<span style="display:none">
+					<h:inputText id="idInput" value="#{operadorUnidadBean.id}" ></h:inputText>
+				</span>
+				<div class="control-group">
+					<label class="control-label" for="name">Nombre</label>
+					<div class="controls">
+						<h:inputText id="nombreInput" value="#{operadorUnidadBean.nombre}" required="true"></h:inputText>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="surname">Apellido</label>
+					<div class="controls">
+						<h:inputText id="apellidoInput" value="#{operadorUnidadBean.apellido}" required="true"></h:inputText>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="domicilio">Domicilio</label>
+					<div class="controls">
+						<h:inputText id="domicilioInput" value="#{operadorUnidadBean.domicilio}"></h:inputText>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="telefono">Telefono</label>
+					<div class="controls">
+						<h:inputText id="telefonoInput" value="#{operadorUnidadBean.telefono}"></h:inputText>
+					</div>
+				</div>
+
+				<div class="control-group">
+					<div class="controls">
+						<h:link onclick="pageTracker._link(this.href); return false;"
+						class="btn btn-info" value="Volver"
+						outcome="administrador_unidad_operadores" />
+						
+						<h:commandButton type="submit" class="btn btn-primary"
+						value="Editar" action="#{operadorUnidadBean.editar()}"></h:commandButton>
+					</div>
+				</div>
+			</h:form>
+		</div>
+
+	</ui:define>
+
+</ui:composition>

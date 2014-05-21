@@ -29,6 +29,29 @@
 				<h:link onclick="pageTracker._link(this.href); return false;"
 				value="Mis Datos" outcome="administrador_central_mis_datos" />
 			</li>
+			
+			<!-- Menu de Administrador de Unidad -->
+			<li class="nav-header #{seccion == 'au_operadores' ? 'active' : ''}">
+              <h:link onclick="pageTracker._link(this.href); return false;"
+				value="AU Operadores" outcome="administrador_unidad_operadores" />
+            </li>
+            <li class="nav-header #{seccion == 'au_mis_datos' ? 'active' : ''}">
+              <h:link onclick="pageTracker._link(this.href); return false;"
+				value="AU Mis Datos" outcome="administrador_unidad_mis_datos" />
+            </li>
+            <!-- / Menu de Administrador de Unidad -->
+            
+            <!-- Menu de Operador de Unidad -->
+			<li class="nav-header #{seccion == 'ou_socios' ? 'active' : ''}">
+              <h:link onclick="pageTracker._link(this.href); return false;"
+				value="OU Socios" outcome="operador_unidad_socios" />
+            </li>
+            <li class="nav-header #{seccion == 'ou_mis_datos' ? 'active' : ''}">
+              <h:link onclick="pageTracker._link(this.href); return false;"
+				value="OU Mis Datos" outcome="operador_unidad_mis_datos" />
+            </li>
+            <!-- / Menu de Operador de Unidad -->
+            
 		</ul>
 	</div>
 </ui:composition>

@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/WEB-INF/facelets/templates/defaultLayout.xhtml">
+	
+	<f:metadata>
+  	<f:event type="preRenderView" listener="#{operadorCentralBean.clear()}"/>
+  </f:metadata>
+	
+	<ui:define name="menu">
+		<ui:include
+			src="/WEB-INF/facelets/secciones/menu/administradorMenu.xhtml">
+			<ui:param name="seccion" value="au_operadores" />
+		</ui:include>
+	</ui:define>
+
+	<ui:define name="contenido">
+		<div class="hero-unit2">
+			<legend>Crear Operador</legend>
+
+			<h:form class="form-horizontal">
+				<div class="control-group">
+					<label class="control-label" for="name">Nombre</label>
+					<div class="controls">
+						<h:inputText id="nombreInput" value="#{operadorUnidadBean.nombre}" required="true"></h:inputText>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="surname">Apellido</label>
+					<div class="controls">
+						<h:inputText id="apellidoInput" value="#{operadorUnidadBean.apellido}" required="true"></h:inputText>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="email">Email</label>
+					<div class="controls">
+						<h:inputText id="emailInput" required="true" value="#{operadorUnidadBean.email}">
+							<f:validateRegex pattern="^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$" />
+						</h:inputText>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="email">Contrasenia</label>
+					<div class="controls">
+						<h:inputSecret id="passwordInput" required="true" value="#{operadorUnidadBean.password}" >
+				 	 		<f:validator  validatorId="validadorPassword" />
+					 	</h:inputSecret>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="domicilio">Domicilio</label>
+					<div class="controls">
+						<h:inputText id="domicilioInput" value="#{operadorUnidadBean.domicilio}"></h:inputText>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="telefono">Telefono</label>
+					<div class="controls">
+						<h:inputText id="telefonoInput" value="#{operadorUnidadBean.telefono}"></h:inputText>
+					</div>
+				</div>
+
+				<div class="control-group">
+					<div class="controls">
+						<h:link onclick="pageTracker._link(this.href); return false;"
+						class="btn btn-info" value="Volver"
+						outcome="administrador_unidad_operadores" />
+						
+						<h:commandButton type="submit" class="btn btn-primary"
+						value="Crear" action="#{operadorUnidadBean.crearOperador()}"></h:commandButton>
+					</div>
+				</div>
+			</h:form>
+		</div>
+
+	</ui:define>
+
+</ui:composition>
