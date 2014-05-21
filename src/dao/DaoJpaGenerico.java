@@ -6,7 +6,8 @@ import daspect.Transactional;
 public class DaoJpaGenerico<T> implements DaoGenerico<T> {
 
 	private Class<?> tipo;
-	public EntityManager entityManager; 
+	private static EntityManager entityManager; 
+	
 	
 
 	public DaoJpaGenerico(Class<?> tipo) {
@@ -18,10 +19,12 @@ public class DaoJpaGenerico<T> implements DaoGenerico<T> {
 		return em;
 	}
 	
-	public EntityManager getEntityManager(){
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("asociacion_celiacos");
-		EntityManager em = emf.createEntityManager();
-		return em;
+	public static EntityManager getEntityManager(){
+		if (entityManager == null) {
+			EntityManagerFactory emf = Persistence.createEntityManagerFactory("asociacion_celiacos");
+			entityManager = emf.createEntityManager();
+		}
+		return entityManager;
 	}
 	
 	@Override
