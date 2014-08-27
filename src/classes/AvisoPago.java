@@ -1,14 +1,19 @@
 package classes;
 
+import java.io.Serializable;
 import java.util.Date;
+
 import javax.persistence.*;
 
 @Entity
 @Table (name="avisos_pagos")
-public class AvisoPago {
-	
-	@Id @GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
+public class AvisoPago extends ObjetoPersistente implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue
+	private Integer id;
 	
 	@Column(nullable=false)		
 	private Date fecha;
@@ -31,14 +36,12 @@ public class AvisoPago {
 
 	
 	
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
-	
+	public Integer getId() {
+		return id;
+	}	
 	public Date getFecha() {
 		return fecha;
 	}

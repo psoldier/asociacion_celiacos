@@ -2,7 +2,7 @@ package dao;
 import classes.*;
 
 
-public interface SocioDao extends DaoGenerico<Socio> {
+public interface SocioDao extends InterfaceDao<Socio> {
 
 	
 

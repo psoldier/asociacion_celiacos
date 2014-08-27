@@ -1,5 +1,6 @@
 package classes;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.*;
@@ -9,10 +10,13 @@ import javax.persistence.*;
 @Table (name="unidades")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="tipo_unidad")
-public class Unidad {
+public class Unidad extends ObjetoPersistente implements Serializable {
 
-	@Id @GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue
+	private Integer id;
 	
 	@Column(nullable=false)  
 	private String nombre;
@@ -47,10 +51,10 @@ public class Unidad {
 	public Unidad() {}
 	
 	
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getNombre() {

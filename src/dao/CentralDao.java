@@ -2,7 +2,7 @@ package dao;
 import classes.*;
 
 
-public interface CentralDao extends DaoGenerico<Central> {
+public interface CentralDao extends InterfaceDao<Central> {
 
 	
 

@@ -4,6 +4,6 @@ import classes.GrupoDeReferencia;
 
 
 
-public interface GrupoDeReferenciaDao extends DaoGenerico<GrupoDeReferencia> {
+public interface GrupoDeReferenciaDao extends InterfaceDao<GrupoDeReferencia> {
 
 }

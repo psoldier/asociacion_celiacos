@@ -1,15 +1,19 @@
 package classes;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.*;
 
 @Entity
 @Table (name="cuentas")
-public class Cuenta {
-	
-	@Id @GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
+public class Cuenta extends ObjetoPersistente implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue
+	private Integer id;
 	
 	@OneToMany(mappedBy="debe")
 	private List<Movimiento> debe;
@@ -20,12 +24,11 @@ public class Cuenta {
 	
 	public Cuenta() {}
 	
-	public Long getId() {
-		return id;
-	}
-	
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
+	}
+	public Integer getId() {
+		return id;
 	}
 	public List<Movimiento> getDebe() {
 		return debe;

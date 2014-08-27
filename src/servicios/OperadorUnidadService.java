@@ -3,16 +3,18 @@ package servicios;
 import java.util.List;
 
 import classes.Usuario;
-import dao.UsuarioDaoImpl;
+import dao.DaosFactory;
+import dao.UsuarioDao;
 
 
 public class OperadorUnidadService {
-	UsuarioDaoImpl dao = new UsuarioDaoImpl();
+	UsuarioDao dao = DaosFactory.getUsuarioDAO();
+	public UsuarioDao getDao() {
+		return dao;
+	}
 	
 	public List<Usuario> getListaOperadoresUnidades() {				
-		
-		
-		return dao.listar();
+		return this.getDao().listar();
 	}
 	
 	public void crearOperadorUnidad(String nombre, String apellido, String password, String email, String telefono, String domicilio){
@@ -24,20 +26,20 @@ public class OperadorUnidadService {
 		u.setTelefono(telefono);
 		u.setDomicilio(domicilio);
 		
-		dao.guardar(u);
+		this.getDao().guardar(u);
 	}
 	
 	public void eliminar(Usuario u){
-		dao.borrar(u);
+		this.getDao().borrar(u);
 	}
 	
-	public void editarOperadorUnidad(Long id, String nombre, String apellido, String telefono, String domicilio){
-		Usuario u = dao.buscar(id);
+	public void editarOperadorUnidad(Integer id, String nombre, String apellido, String telefono, String domicilio){
+		Usuario u = this.getDao().buscar(Usuario.class, id);
 		u.setNombre(nombre);
 		u.setApellido(apellido);
 		u.setTelefono(telefono);
 		u.setDomicilio(domicilio);
 		
-		dao.actualizar(u);
+		this.getDao().actualizar(u);
 	}
 }

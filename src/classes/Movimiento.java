@@ -1,15 +1,19 @@
 package classes;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.*;
 
 @Entity
 @Table (name="movimientos")
-public class Movimiento {
-	
-	@Id @GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
+public class Movimiento extends ObjetoPersistente implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue
+	private Integer id;
 	
 	@ManyToOne(optional = false)
 	@JoinColumn(name="debe_id")
@@ -40,11 +44,12 @@ public class Movimiento {
 	public Movimiento() {}
 	
 	
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
+	}
+	
+	public Integer getId() {
+		return id;
 	}
 	public Cuenta getDebe() {
 		return debe;

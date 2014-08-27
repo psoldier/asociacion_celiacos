@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 @DiscriminatorValue("Delegacion")
 public class Delegacion extends Unidad {
 	
+	private static final long serialVersionUID = 1L;
+	
 	public Delegacion() {}
 
 }

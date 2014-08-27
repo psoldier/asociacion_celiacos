@@ -2,7 +2,7 @@ package dao;
 import classes.*;
 
 
-public interface TipoPagoDao extends DaoGenerico<TipoPago> {
+public interface TipoPagoDao extends InterfaceDao<TipoPago> {
 
 	
 

@@ -2,7 +2,7 @@ package dao;
 import classes.*;
 
 
-public interface PerfilDao extends DaoGenerico<Perfil> {
+public interface PerfilDao extends InterfaceDao<Perfil> {
 
 	
 

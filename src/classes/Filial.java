@@ -6,6 +6,7 @@ import javax.persistence.*;
 @Entity
 @DiscriminatorValue("Filial")
 public class Filial extends Unidad {
+	private static final long serialVersionUID = 1L;
 	
 	@OneToOne(optional = false)
 	@JoinColumn(name="cuenta_id",nullable = false)

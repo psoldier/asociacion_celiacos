@@ -1,14 +1,18 @@
 package classes;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.*;
 @Entity
 @Table (name="tipos_pagos")
-public class TipoPago {
+public class TipoPago extends ObjetoPersistente implements Serializable {
 	
-	@Id @GeneratedValue(strategy=GenerationType.AUTO)
-	private Long Id;
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue
+	private Integer id;
 	
 	@Column(name="nombre", nullable=false)
     private String nombre;
@@ -16,10 +20,7 @@ public class TipoPago {
 	@OneToMany(mappedBy="tipo_pago")
 	private List<AvisoPago> avisos_pagos;
 	
-	
-	
 	public TipoPago() {	}
-
 	
 	public List<AvisoPago> getAvisos_pagos() {
 		return avisos_pagos;
@@ -37,11 +38,11 @@ public class TipoPago {
 		this.nombre = nombre;
 	}
 	
-	public Long getId() {
-		return Id;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	
-	public void setId(Long id) {
-		Id = id;
+	public Integer getId() {
+		return id;
 	}
 }

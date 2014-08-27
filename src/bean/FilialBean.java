@@ -12,16 +12,16 @@ import classes.Filial;
 @ManagedBean(name = "filialBean")
 @SessionScoped
 public class FilialBean {
-	private long id;
+	private Integer id;
 	private String nombre;
 	private String direccion;
 	private String email;
 	private String telefono;
 	
-	public long getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getNombre() {

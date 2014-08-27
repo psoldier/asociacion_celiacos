@@ -1,17 +1,13 @@
 package servicios;
 
 import classes.Usuario;
+import dao.DaosFactory;
 import dao.UsuarioDao;
-import dao.UsuarioDaoImpl;
-
-
 
 public class LoginService {
 	
-	
 	public Usuario loginUsuario(String email,String password){
-		UsuarioDao dao = new UsuarioDaoImpl();
+		UsuarioDao dao = DaosFactory.getUsuarioDAO();
 		return dao.getUser(email,password);
 	}
-	
 }

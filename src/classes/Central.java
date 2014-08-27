@@ -7,6 +7,8 @@ import javax.persistence.*;
 @DiscriminatorValue("Central")
 public class Central extends Unidad {
 	
+	private static final long serialVersionUID = 1L;
+	
 	@OneToOne(optional = false)
 	@JoinColumn(name="cuenta_id",nullable = false)
 	private Cuenta cuenta;

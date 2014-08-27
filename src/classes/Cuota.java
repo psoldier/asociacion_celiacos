@@ -1,5 +1,6 @@
 package classes;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -7,10 +8,13 @@ import javax.persistence.*;
 
 @Entity
 @Table (name="cutas")
-public class Cuota {
-	
-	@Id @GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
+public class Cuota extends ObjetoPersistente implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue
+	private Integer id;
 	
 	@Column(nullable=false)	
 	private Float monto;
@@ -34,11 +38,11 @@ public class Cuota {
 	
 	
 	
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
+	}
+	public Integer getId() {
+		return id;
 	}
 	
 	public Float getMonto() {

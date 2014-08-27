@@ -6,6 +6,8 @@ import javax.persistence.*;
 @DiscriminatorValue("Lugar")
 public class Lugar extends Item {
 	
+	private static final long serialVersionUID = 1L;
+	
 	@Column(name="direccion")
 	private String direccion;
 	

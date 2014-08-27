@@ -3,7 +3,6 @@ package query;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import classes.*;
 import dao.*;
 
@@ -15,7 +14,7 @@ public class DbLoader {
 		
 		
 		// TIPOS DE UNIDADES
-		DaoJpaGenerico<TipoUnidad> dao_tipo_unidad = new DaoJpaGenerico<TipoUnidad>(TipoUnidad.class);
+		TipoUnidadDao dao_tipo_unidad = DaosFactory.getTipoUnidadDao();
 		
 		TipoUnidad tipo_unidad1 = new TipoUnidad();
 		TipoUnidad tipo_unidad2 = new TipoUnidad();
@@ -23,7 +22,7 @@ public class DbLoader {
 		TipoUnidad tipo_unidad4 = new TipoUnidad();
 		TipoUnidad tipo_unidad5 = new TipoUnidad();
 		
-		tipo_unidad1.setNombre("Cenrrralt");
+		tipo_unidad1.setNombre("Cennnntral");
 		tipo_unidad2.setNombre("Filial");
 		tipo_unidad3.setNombre("Delegacion");
 		tipo_unidad4.setNombre("Grupo de Referencia");
@@ -50,15 +49,15 @@ public class DbLoader {
 	    
 	    
 	    //BUSCAR Y ELIMINAR TIPO DE UNIDAD
-	    Long id = tipo_unidad5.getId();
-	    TipoUnidad tu =  dao_tipo_unidad.buscar(id);
+	    Integer id = tipo_unidad5.getId();
+	    TipoUnidad tu =  dao_tipo_unidad.buscar(TipoUnidad.class,id);
 	    
 	    dao_tipo_unidad.borrar(tu);
 	    System.out.println("###-----BORRADO------###");
 	    
 	    
 	    //PERFILES DE USUARIOS
-	    DaoJpaGenerico<Perfil> dao_perfil = new DaoJpaGenerico<Perfil>(Perfil.class);
+	    PerfilDao dao_perfil = DaosFactory.getPerfilDao();
 	    System.out.println("###-----<PERFILES>------###");
 		Perfil perfil1 = new Perfil();
 		Perfil perfil2 = new Perfil();
@@ -84,26 +83,26 @@ public class DbLoader {
 		dao_perfil.guardar(perfil6);
 		
 		id = perfil1.getId();
-	    Object perf1 =  dao_perfil.buscar(id);
+	    Perfil perf1 =  dao_perfil.buscar(Perfil.class,id);
 	    id = perfil2.getId();
-	    Object perf2 =  dao_perfil.buscar(id);
+	    Perfil perf2 =  dao_perfil.buscar(Perfil.class,id);
 	    id = perfil3.getId();
-	    Object perf3 =  dao_perfil.buscar(id);
+	    Perfil perf3 =  dao_perfil.buscar(Perfil.class,id);
 	    id = perfil4.getId();
-	    Object perf4 =  dao_perfil.buscar(id);
+	    Perfil perf4 =  dao_perfil.buscar(Perfil.class,id);
 	    id = perfil5.getId();
-	    Object perf5 =  dao_perfil.buscar(id);
+	    Perfil perf5 =  dao_perfil.buscar(Perfil.class,id);
 	    id = perfil6.getId();
-	    Object perf6 =  dao_perfil.buscar(id);
+	    Perfil perf6 =  dao_perfil.buscar(Perfil.class,id);
 		
 		
 		System.out.println("###-----PERFILES CREADOS ---------###");
-		System.out.println("########------"+ ((Perfil) perf1).getNombre() +"--------##############");
-		System.out.println("########------"+ ((Perfil) perf2).getNombre() +"--------##############");
-		System.out.println("########------"+ ((Perfil) perf3).getNombre() +"--------##############");
-		System.out.println("########------"+ ((Perfil) perf4).getNombre() +"--------##############");
-		System.out.println("########------"+ ((Perfil) perf5).getNombre() +"--------##############");
-		System.out.println("########------"+ ((Perfil) perf6).getNombre() +"--------##############");
+		System.out.println("########------"+ perf1.getNombre() +"--------##############");
+		System.out.println("########------"+ perf2.getNombre() +"--------##############");
+		System.out.println("########------"+ perf3.getNombre() +"--------##############");
+		System.out.println("########------"+ perf4.getNombre() +"--------##############");
+		System.out.println("########------"+ perf5.getNombre() +"--------##############");
+		System.out.println("########------"+ perf6.getNombre() +"--------##############");
 		
 		System.out.println("###-----</PERFILES>------###");
 		
@@ -115,7 +114,7 @@ public class DbLoader {
 	    
 	    System.out.println("###-----<TIPOS DE CUOTAS>------###");
 	    //CREO TIPOS DE CUOTAS
-	    DaoJpaGenerico<TipoCuota> dao_tipo_cuota = new DaoJpaGenerico<TipoCuota>(TipoCuota.class);
+	    TipoCuotaDao dao_tipo_cuota = DaosFactory.getTipoCuotaDao();
 	    
 	    TipoCuota tipo_cuota1 = new TipoCuota();
 	    TipoCuota tipo_cuota2 = new TipoCuota();
@@ -130,9 +129,9 @@ public class DbLoader {
 	    dao_tipo_cuota.guardar(tipo_cuota2);
 	    
 	    id = tipo_cuota1.getId();
-	    Object tc1 =  dao_tipo_cuota.buscar(id);
+	    TipoCuota tc1 =  dao_tipo_cuota.buscar(TipoCuota.class,id);
 	    id = tipo_cuota2.getId();
-	    Object tc2 =  dao_tipo_cuota.buscar(id);
+	    TipoCuota tc2 =  dao_tipo_cuota.buscar(TipoCuota.class,id);
 	    
 	    System.out.println("###-----TIPOS DE CUOTAS CREADOS ---------###");
 		System.out.println("########------"+ ((TipoCuota) tc1).getNombre() +"--------##############");
@@ -145,8 +144,8 @@ public class DbLoader {
 	    System.out.println("###-----</TIPOS DE CUOTAS>------###");
 	    
 	    //CREO USUARIOS
-	    DaoJpaGenerico<Usuario> dao_usuario = new DaoJpaGenerico<Usuario>(Usuario.class);
-	    
+	    UsuarioDao dao_usuario = DaosFactory.getUsuarioDAO();
+	     
 	    System.out.println("###-----<USUARIOS>------###");
 	    Usuario user1 = new Usuario();
 	    Usuario user2 = new Usuario();
@@ -191,19 +190,19 @@ public class DbLoader {
 	    dao_usuario.guardar(user4);
 	    
 	    id = user1.getId();
-	    Object u1 =  dao_usuario.buscar(id);
+	    Usuario u1 =  dao_usuario.buscar(Usuario.class,id);
 	    id = user2.getId();
-	    Object u2 =  dao_usuario.buscar(id);
+	    Usuario u2 =  dao_usuario.buscar(Usuario.class,id);
 	    id = user3.getId();
-	    Object u3 =  dao_usuario.buscar(id);
+	    Usuario u3 =  dao_usuario.buscar(Usuario.class,id);
 	    id = user4.getId();
-	    Object u4 =  dao_usuario.buscar(id);
+	    Usuario u4 =  dao_usuario.buscar(Usuario.class,id);
 	    
 	    System.out.println("###-----USUARIOS CREADOS ---------###");
-		System.out.println("########------"+ ((Usuario) u1).getNombre() +"--------##############");
-		System.out.println("########------"+ ((Usuario) u2).getNombre() +"--------##############");
-		System.out.println("########------"+ ((Usuario) u3).getNombre() +"--------##############");
-		System.out.println("########------"+ ((Usuario) u4).getNombre() +"--------##############");
+		System.out.println("########------"+ u1.getNombre() +"--------##############");
+		System.out.println("########------"+ u2.getNombre() +"--------##############");
+		System.out.println("########------"+ u3.getNombre() +"--------##############");
+		System.out.println("########------"+ u4.getNombre() +"--------##############");
 	    
 	    
 	    
@@ -217,7 +216,7 @@ public class DbLoader {
 	    System.out.println("###-----</USUARIOS>------###");
 	    
 	    //CUENTA
-	    DaoJpaGenerico<Cuenta> dao_cuenta = new DaoJpaGenerico<Cuenta>(Cuenta.class);
+	    CuentaDao dao_cuenta = DaosFactory.getCuentaDao();
 	    
 	    System.out.println("###-----<CUENTA>------###");
 	    Cuenta unidad_cuenta1 = new Cuenta();
@@ -227,9 +226,9 @@ public class DbLoader {
 	    dao_cuenta.guardar(unidad_cuenta2);
 	    
 	    id = unidad_cuenta1.getId();
-	    Object c1 =  dao_cuenta.buscar(id);
+	    Cuenta c1 =  dao_cuenta.buscar(Cuenta.class,id);
 	    id = unidad_cuenta2.getId();
-	    Object c2 =  dao_cuenta.buscar(id);
+	    Cuenta c2 =  dao_cuenta.buscar(Cuenta.class,id);
 	    
 	    System.out.println("###-----CUENTA CREADAS ---------###");
 		System.out.println("########------"+ c1.getClass() +"--------##############");
@@ -241,8 +240,8 @@ public class DbLoader {
 	    
 	    //CREO UNIDAD
 	    System.out.println("###-----<UNIDAD>------###");
-	    DaoJpaGenerico<Central> dao_central = new DaoJpaGenerico<Central>(Central.class);
-	    DaoJpaGenerico<Filial> dao_filial = new DaoJpaGenerico<Filial>(Filial.class);
+	    CentralDao dao_central = DaosFactory.getCentralDao();
+	    FilialDao dao_filial = DaosFactory.getFilialDAO();
 	    
 	    
 	    Central unidad1 = new Central();

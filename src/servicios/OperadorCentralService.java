@@ -3,14 +3,17 @@ package servicios;
 import java.util.List;
 
 import classes.Usuario;
-import dao.UsuarioDaoImpl;
-
+import dao.DaosFactory;
+import dao.UsuarioDao;
 
 public class OperadorCentralService {
-	UsuarioDaoImpl dao = new UsuarioDaoImpl();
+	UsuarioDao dao = DaosFactory.getUsuarioDAO();
+	public UsuarioDao getDao() {
+		return dao;
+	}
 	
 	public List<Usuario> getListaOperadoresCentrales() {				
-		return dao.listar();
+		return this.getDao().listar();
 	}
 	
 	public void crearOperadorCentral(String nombre, String apellido, String password, String email, String telefono, String domicilio){
@@ -22,15 +25,15 @@ public class OperadorCentralService {
 		u.setTelefono(telefono);
 		u.setDomicilio(domicilio);
 		
-		dao.guardar(u);
+		this.getDao().guardar(u);
 	}
 	
 	public void eliminar(Usuario u){
-		dao.borrar(u);
+		this.getDao().borrar(u);
 	}
 	
-	public Usuario editarOperadorCentral(Long id, String nombre, String apellido, String email, String password, String telefono, String domicilio){
-		Usuario u = dao.buscar(id);
+	public void editarOperadorCentral(Integer id, String nombre, String apellido, String email, String password, String telefono, String domicilio){
+		Usuario u = this.getDao().buscar(Usuario.class,id);
 		u.setNombre(nombre);
 		u.setApellido(apellido);
 		u.setPassword(password);
@@ -38,7 +41,7 @@ public class OperadorCentralService {
 		u.setTelefono(telefono);
 		u.setDomicilio(domicilio);
 		
-		return dao.actualizar(u);
+		this.getDao().actualizar(u);
 		
 	}
 }

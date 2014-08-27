@@ -1,12 +1,24 @@
 package dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.EntityManager;
+
 import classes.GrupoDeReferencia;
 
-public class GrupoDeReferenciaDaoImpl extends DaoJpaGenerico<GrupoDeReferencia> implements
+public class GrupoDeReferenciaDaoImpl extends DAOGenericoJPA<GrupoDeReferencia> implements
 GrupoDeReferenciaDao {
-	
-	public GrupoDeReferenciaDaoImpl() {
-		super(GrupoDeReferencia.class);
-		// TODO Auto-generated constructor stub
+
+	@Override
+	public List<GrupoDeReferencia> listar() {
+		EntityManager em=getEntityManagerFactory().createEntityManager();
+		String query = "select g from GrupoDeReferencia g";
+		@SuppressWarnings("unchecked")
+		List<GrupoDeReferencia> list = (ArrayList<GrupoDeReferencia>)(em.createQuery(query)).getResultList();
+		em.close();
+		return list;
 	}
+	
+	
 }

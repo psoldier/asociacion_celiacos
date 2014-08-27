@@ -8,6 +8,8 @@ import javax.persistence.OneToMany;
 @DiscriminatorValue("SocioVirtual")
 public class SocioVirtual extends Socio {
 	
+	private static final long serialVersionUID = 1L;
+	
 	@OneToMany(mappedBy="socio_virtual")
 	private List<AvisoPago> avisos_pagos;
 

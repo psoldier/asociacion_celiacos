@@ -6,7 +6,8 @@ import javax.persistence.*;
 @DiscriminatorValue("Socio")
 public class Socio extends Perfil {
 	
-	
+	private static final long serialVersionUID = 1L;
+
 	@Column(name="numero_socio", nullable=false)
 	private String numero_socio;
 	

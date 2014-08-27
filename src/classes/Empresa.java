@@ -1,13 +1,18 @@
 package classes;
 
+import java.io.Serializable;
 import java.util.List;
+
 import javax.persistence.*;
 @Entity
 @Table (name="empresas")
-public class Empresa {
-	
-	@Id @GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
+public class Empresa extends ObjetoPersistente implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue
+	private Integer id;
 	
 	@Column(name="nombre", nullable=false)
 	private String nombre;
@@ -31,11 +36,11 @@ public class Empresa {
 	public Empresa() {}
 	
 	
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
+	}
+	public Integer getId() {
+		return id;
 	}
 	public String getNombre() {
 		return nombre;

@@ -11,7 +11,7 @@ import classes.Usuario;
 @ManagedBean(name = "operadorUnidadBean")
 @SessionScoped
 public class OperadorUnidadBean {
-	private long id;
+	private Integer id;
 	private String email;
 	private String password;
 	private String nombre;
@@ -19,10 +19,10 @@ public class OperadorUnidadBean {
 	private String telefono;
 	private String domicilio;
 	
-	public long getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getNombre() {

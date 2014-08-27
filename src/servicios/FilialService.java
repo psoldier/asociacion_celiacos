@@ -3,14 +3,18 @@ package servicios;
 import java.util.List;
 
 import classes.Filial;
-import dao.FilialDaoImpl;
+import dao.DaosFactory;
+import dao.FilialDao;
 
 
 public class FilialService {
-	FilialDaoImpl dao = new FilialDaoImpl();
+	FilialDao dao = DaosFactory.getFilialDAO();
+	public FilialDao getDao() {
+		return dao;
+	}
 	
 	public List<Filial> getListaFiliales() {				
-		return dao.listar();
+		return this.getDao().listar();
 	}
 	
 	public void crearFilial(String nombre, String direccion, String email, String telefono){
@@ -20,20 +24,20 @@ public class FilialService {
 		f.setEmail(email);
 		f.setTelefono(telefono);
 		
-		dao.guardar(f);
+		this.getDao().guardar(f);
 	}
 	
 	public void eliminar(Filial f){
-		dao.borrar(f);
+		this.getDao().borrar(f);
 	}
 	
-	public void editarFilial(Long id, String nombre, String direccion, String email, String telefono){
-		Filial f = dao.buscar(id);
+	public void editarFilial(Integer id, String nombre, String direccion, String email, String telefono){
+		Filial f = this.getDao().buscar(Filial.class, id);
 		f.setNombre(nombre);
 		f.setDireccion(direccion);
 		f.setEmail(email);
 		f.setTelefono(telefono);
 		
-		dao.actualizar(f);
+		this.getDao().actualizar(f);
 	}
 }

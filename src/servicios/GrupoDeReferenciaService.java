@@ -3,13 +3,17 @@ package servicios;
 import java.util.List;
 
 import classes.GrupoDeReferencia;
-import dao.GrupoDeReferenciaDaoImpl;
+import dao.DaosFactory;
+import dao.GrupoDeReferenciaDao;
 
 public class GrupoDeReferenciaService {
-	GrupoDeReferenciaDaoImpl dao = new GrupoDeReferenciaDaoImpl();
+	GrupoDeReferenciaDao dao = DaosFactory.getGrupoDeReferenciaDao();
+	public GrupoDeReferenciaDao getDao() {
+		return dao;
+	}
 	
 	public List<GrupoDeReferencia> getListaGrupoDeReferencias() {				
-		return dao.listar();
+		return this.getDao().listar();
 	}
 	
 	public void crearGrupoDeReferencia(String nombre, String direccion, String email, String telefono){
@@ -19,20 +23,20 @@ public class GrupoDeReferenciaService {
 		gdr.setEmail(email);
 		gdr.setTelefono(telefono);
 		
-		dao.guardar(gdr);
+		this.getDao().guardar(gdr);
 	}
 	
 	public void eliminar(GrupoDeReferencia gdr){
-		dao.borrar(gdr);
+		this.getDao().borrar(gdr);
 	}
 	
-	public void editarGrupoDeReferencia(Long id, String nombre, String direccion, String email, String telefono){
-		GrupoDeReferencia gdr = dao.buscar(id);
+	public void editarGrupoDeReferencia(Integer id, String nombre, String direccion, String email, String telefono){
+		GrupoDeReferencia gdr = this.getDao().buscar(GrupoDeReferencia.class, id);
 		gdr.setNombre(nombre);
 		gdr.setDireccion(direccion);
 		gdr.setEmail(email);
 		gdr.setTelefono(telefono);
 		
-		dao.actualizar(gdr);
+		this.getDao().actualizar(gdr);
 	}
 }

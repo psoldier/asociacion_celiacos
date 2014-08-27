@@ -3,12 +3,19 @@ package servicios;
 import java.util.List;
 
 import classes.Delegacion;
-import dao.DelegacionDaoImpl;
+import dao.DaosFactory;
+import dao.DelegacionDao;
+
 
 public class DelegacionService {
-	DelegacionDaoImpl dao = new DelegacionDaoImpl();
+	DelegacionDao dao = DaosFactory.getDelegacionDAO();
+	
+	public DelegacionDao getDao() {
+		return dao;
+	}
+	
 	public List<Delegacion> getListaDelegaciones() {				
-		return dao.listar();
+		return this.getDao().listar();
 	}
 	
 	public void crearDelegacion(String nombre, String direccion, String email, String telefono){
@@ -18,15 +25,15 @@ public class DelegacionService {
 		d.setEmail(email);
 		d.setTelefono(telefono);
 		
-		dao.guardar(d);
+		this.getDao().guardar(d);
 	}
 	
 	public void eliminar(Delegacion d){
 		dao.borrar(d);
 	}
 	
-	public void editarDelegacion(Long id, String nombre, String direccion, String email, String telefono){
-		Delegacion d = dao.buscar(id);
+	public void editarDelegacion(Integer id, String nombre, String direccion, String email, String telefono){
+		Delegacion d = this.getDao().buscar(Delegacion.class,id);
 		d.setNombre(nombre);
 		d.setDireccion(direccion);
 		d.setEmail(email);

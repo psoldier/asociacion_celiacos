@@ -1,19 +1,21 @@
 package classes;
 
+import java.io.Serializable;
+
 import javax.persistence.*;
 @Entity
 @Table (name="tipo_unidades")
-public class TipoUnidad {
+public class TipoUnidad extends ObjetoPersistente implements Serializable {
 	
-	@Id @GeneratedValue(strategy=GenerationType.AUTO)
-	private Long Id;
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue
+	private Integer id;
 	
 	@Column(name="nombre", nullable=false)
 	private String nombre;
 
-	
-	
-	
 	public TipoUnidad() {}
 
 	public String getNombre() {
@@ -24,7 +26,11 @@ public class TipoUnidad {
 		this.nombre = nombre;
 	}
 	
-	public Long getId() {
-		return Id;
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	
+	public Integer getId() {
+		return id;
 	}
 }

@@ -1,14 +1,23 @@
 package dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.EntityManager;
+
 import classes.Filial;
 
-public class FilialDaoImpl extends DaoJpaGenerico<Filial> implements
-FilialDao {
+public class FilialDaoImpl extends DAOGenericoJPA<Filial> implements FilialDao {
 
-	public FilialDaoImpl() {
-		super(Filial.class);
-		// TODO Auto-generated constructor stub
+	@Override
+	public List<Filial> listar() {
+		
+		EntityManager em=getEntityManagerFactory().createEntityManager();
+		String query = "select f from Filial f";
+		@SuppressWarnings("unchecked")
+		List<Filial> list = (ArrayList<Filial>)(em.createQuery(query)).getResultList();
+		em.close();
+		return list;
 	}
-
 
 }

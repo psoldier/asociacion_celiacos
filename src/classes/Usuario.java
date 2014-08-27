@@ -1,13 +1,28 @@
 package classes;
 
+import java.io.Serializable;
 import java.util.List;
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+
 @Entity
 @Table (name="usuarios")
-public class Usuario {
+public class Usuario extends ObjetoPersistente implements Serializable {
 	
-	@Id @GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue
+	private Integer id;
 	
 	@Column(name="nombre", nullable=false)	
 	private String nombre;
@@ -43,10 +58,10 @@ public class Usuario {
 	public Usuario() {}
 	
 	
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getNombre() {

@@ -6,6 +6,8 @@ import javax.persistence.*;
 @DiscriminatorValue("Producto")
 public class Producto extends Item{
 	
+	private static final long serialVersionUID = 1L;
+	
 	@Column(name="rnpa", nullable=false)
 	private String rnpa;
 	
