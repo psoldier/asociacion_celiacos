@@ -9,14 +9,15 @@ import classes.Usuario;
 public class UsuarioDaoImpl extends DaoJpaGenerico<Usuario> implements
 		UsuarioDao {
 
-	public UsuarioDaoImpl(Class<?> tipo) {
-		super(tipo);
+	public UsuarioDaoImpl() {
+		super(Usuario.class);
 		// TODO Auto-generated constructor stub
 	}
 
-	public Usuario buscarUsuario(String email, String password) {
-
-		Query query = this.getEntityManager().createQuery("select u FROM Usuario u where u.email= :email AND u.password = :password");
+	
+	public Usuario getUser(String email, String password) {
+		String sql = "select u FROM Usuario u where u.email= :email AND u.password = :password";
+		Query query = entityManager.createQuery(sql);
 		query.setParameter("email", email);
 		query.setParameter("password", password);
 		List<Usuario> users = query.getResultList();
@@ -25,20 +26,18 @@ public class UsuarioDaoImpl extends DaoJpaGenerico<Usuario> implements
 		}
 		return null;
 	}
-
-	public List<Usuario> listaOperadorCentral() {
-
-		//Falta agregar al query q sea por tipo operadorCentral
-		Query query = this.getEntityManager().createQuery("FROM Usuario");
-		return query.getResultList();
+ 
+	public Usuario getUser(String email) {
+		String sql = "SELECT u FROM usuarios u WHERE u.email = :email";
+		Query query = entityManager.createQuery(sql);
+		query.setParameter("email", email);
+		query.getResultList();
+		List<Usuario> l = query.getResultList();
+		if (l.isEmpty()) {
+			return null;
+		}
+		return l.get(0);
 	}
 	
-	public List<Usuario> listaOperadorUnidad() {
-
-		//Falta agregar al query q sea por tipo operadorUnidad
-		Query query = this.getEntityManager().createQuery("FROM Usuario");
-		return query.getResultList();
-	}
 	
-
 }

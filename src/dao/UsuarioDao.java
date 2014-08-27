@@ -1,16 +1,8 @@
 package dao;
 
-
-import classes.*;
-
-
+import classes.Usuario;
 
 public interface UsuarioDao extends DaoGenerico<Usuario> {
-
-	
-	public Usuario buscarUsuario(String email, String password);
-	
-	//public List<Usuario> listaOperadorCentral();
-	
-
+	public Usuario getUser(String email, String password);
+	public Usuario getUser(String email);
 }

@@ -51,7 +51,7 @@ public class DbLoader {
 	    
 	    //BUSCAR Y ELIMINAR TIPO DE UNIDAD
 	    Long id = tipo_unidad5.getId();
-	    Object tu =  dao_tipo_unidad.buscar(id);
+	    TipoUnidad tu =  dao_tipo_unidad.buscar(id);
 	    
 	    dao_tipo_unidad.borrar(tu);
 	    System.out.println("###-----BORRADO------###");

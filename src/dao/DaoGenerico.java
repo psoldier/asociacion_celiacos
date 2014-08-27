@@ -1,16 +1,15 @@
 package dao;
 
+import java.util.List;
+
 
 
 public interface DaoGenerico<T> {
 
-	public Object buscar(Long id);
-
-    public void guardar(Object entity);
-
-    public void borrar(Object entity);
-
-	public void actualizar(Object entity);
-
-	
+	public void guardar(T entity);
+	public void borrar(T entity);
+	public void eliminarPorId(Object id) ;
+	public T buscar(Long id);
+	public T actualizar(T entity);
+	public List<T> listar();
 }

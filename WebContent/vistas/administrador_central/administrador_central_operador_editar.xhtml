@@ -35,6 +35,22 @@
 					</div>
 				</div>
 				<div class="control-group">
+					<label class="control-label" for="email">Email</label>
+					<div class="controls">
+						<h:inputText id="emailInput" required="true" value="#{operadorCentralBean.email}">
+							<f:validateRegex pattern="^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$" />
+						</h:inputText>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="email">Contrasenia</label>
+					<div class="controls">
+						<h:inputSecret id="passwordInput" required="true" value="#{operadorCentralBean.password}" >
+				 	 		<f:validator  validatorId="validadorPassword" />
+					 	</h:inputSecret>
+					</div>
+				</div>
+				<div class="control-group">
 					<label class="control-label" for="domicilio">Domicilio</label>
 					<div class="controls">
 						<h:inputText id="domicilioInput" value="#{operadorCentralBean.domicilio}"></h:inputText>

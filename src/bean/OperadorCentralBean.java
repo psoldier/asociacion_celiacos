@@ -90,7 +90,8 @@ public class OperadorCentralBean {
 	
 	public String editar(){
 		OperadorCentralService servicio = new OperadorCentralService();	
-		servicio.editarOperadorCentral(id, nombre, apellido, telefono, domicilio);
+		Usuario u = servicio.editarOperadorCentral(id, nombre, apellido, email, password, telefono, domicilio);
+		u.getApellido();
 		return "operador_central_editado";
 	}
 	public String eliminar(Usuario operador){
