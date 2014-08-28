@@ -16,7 +16,7 @@ public abstract class DAOGenericoJPA<T> implements InterfaceDao<T> {
 	public static EntityManagerFactory getEntityManagerFactory() {
 
 		if (emf == null) {
-			emf = Persistence.createEntityManagerFactory("celiacos");
+			emf = Persistence.createEntityManagerFactory("asociacion_celiacos");
 		}
 		return emf;
 	}

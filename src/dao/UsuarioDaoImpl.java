@@ -11,7 +11,8 @@ import classes.Usuario;
 public class UsuarioDaoImpl extends DAOGenericoJPA<Usuario> implements
 		UsuarioDao {
 
-	private EntityManager em=getEntityManagerFactory().createEntityManager();
+	private EntityManager em= super.getEntityManagerFactory().createEntityManager();
+	
 	@Override
 	public List<Usuario> listar() {
 		String query = "select u from Usuario u";
@@ -28,7 +29,7 @@ public class UsuarioDaoImpl extends DAOGenericoJPA<Usuario> implements
 		query.setParameter("password", password);
 		@SuppressWarnings("unchecked")
 		List<Usuario> users = (ArrayList<Usuario>)query.getResultList();
-		if (users != null && users.size() == 1) {
+		if (users != null && users.size() > 0) {
 			return users.get(0);
 		}
 		return null;
